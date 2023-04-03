@@ -62,10 +62,21 @@ class Hand:
     
     def add_card(self,card):
         self.cards.append(card)
+        
+        
         self.value += values[card.rank]
+        
+        # Track our aces 
+        if card.rank == 'Ace':
+            self.aces += 1
     
     def adjust_for_ace(self):
-        pass
+        
+        while self.value > 21 and self.aces:
+            self.aces += 1
+            
+            self.value -= 10
+            self.aces -= 1
     
 test_deck = Deck()
 test_deck.shuffle()
@@ -76,4 +87,18 @@ pulled_card = test_deck.deal()
 print(pulled_card)
 test_player.add_card(pulled_card)
 print(test_player.value)
+
+
+
+class Chips():
+    
+    def __init__(self,total = 100):
+        self.total = total
+        self.bet = 0
+        
+    def win_bet(self):
+        self.total += self.bet
+    
+    def lose_bet(self):
+        self.total -= self.bet
     
