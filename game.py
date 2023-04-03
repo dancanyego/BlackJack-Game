@@ -101,4 +101,25 @@ class Chips():
     
     def lose_bet(self):
         self.total -= self.bet
+        
+# functions for placing a bet
+
+def take_bet(chips):
+    
+    while True:
+        
+        try:
+            chips.bet = int(input("How Many chips Would You like to bet"))
+        
+        except:
+            print("Please Provide a valid Interger")
+            
+        else:
+            if chips < chips.total:
+                print("Sorry You have insuficient chips !! You have {}".format(chips.total))
+                
+            else: 
+                break
+                
+                
     
