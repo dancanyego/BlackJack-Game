@@ -51,3 +51,29 @@ class Deck():
     
 test_deck = Deck()
 print(test_deck)
+
+# Hand And Chip class
+
+class Hand:
+    def __init__(self):
+        self.cards = []  # start with an empty list as we did in the Deck class
+        self.value = 0   # start with zero value
+        self.aces = 0    # add an attribute to keep track of aces
+    
+    def add_card(self,card):
+        self.cards.append(card)
+        self.value += values[card.rank]
+    
+    def adjust_for_ace(self):
+        pass
+    
+test_deck = Deck()
+test_deck.shuffle()
+
+# Deal one card From The Deck card(Suit , rank)
+test_player = Hand()
+pulled_card = test_deck.deal()
+print(pulled_card)
+test_player.add_card(pulled_card)
+print(test_player.value)
+    
