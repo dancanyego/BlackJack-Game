@@ -214,4 +214,40 @@ def push(player,dealer):
     print("Dealer and Player Tied !! PUSH !")
     
 
+## AND NOW THE GAME PLAY LOGIC
+
+while True:
+    
+    print("Welcome to Black Jack")
+    
+    # Create and shuffle deck and  deal two cards to each player
+    deck = Deck()
+    deck.shuffle()
+    
+    player_hand = Hand()
+    player_hand.add_card(deck.deal()) # This is One card added
+    player_hand.add_card(deck.deal())
+    
+    dealer_hand = Hand()
+    dealer_hand.add_card(deck.deal())
+    dealer_hand.add_card(deck.deal())
+    
+    ## Set Up The Player Chips
+    
+    player_chips = Chips()
+    
+    # Prompt Player For their Bet
+    
+    take_bet(player_chips)
+    
+    #Show Cards
+    
+    show_some(player_hand, dealer_hand)
+    
+    while playing():
+        pass
+    
+    
+
+
     
