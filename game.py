@@ -132,3 +132,68 @@ def hit(deck,hand):
     
 #Prompting players to hit or stand
 
+def hit_or_stand(deck,hand):
+    
+    global playing 
+    
+    while True:
+        
+        x = input("hit or Stand ??  Enter 'H' or 'S' ")
+        
+        if x[0].lower() == 'h':
+            hit(deck, hand)
+            
+        elif x[0].lower == 's':
+                print("Player Stands, Dealers Turn")
+                playing = False
+                
+        else:
+            print("I did not understand your prompt, Please Enter H or S only")
+            
+        break
+    
+# Functions to display Cards
+
+def show_some(player,dealer):
+    #Show only one of the dealers hand
+    
+    print("\n Dealers hands::  ")
+    print("First Cards Hidden!!")
+    
+    print(dealer.card[1])
+    
+    
+    #Show all of the Two Players Card
+    
+    print("\n Players Hand ::> ")
+    
+    for card in player.Cards:
+        print(card)
+    
+    
+
+def show_all(player,dealer):
+    
+    # Show All dealers Card
+    
+    print("\n Dealers Hand ::> ")
+    
+    for card in dealer.Cards:
+        print(card)
+    
+    # Calculate and display The Value
+    
+    print(f"Value of Dealers Card is :> {dealer.value}")
+    
+    # Show The players Cards 
+    
+     
+    print("\n Players Hand ::> ")
+    
+    for card in player.Cards:
+        print(card)
+        
+##End Of Game scenarios
+
+
+    
