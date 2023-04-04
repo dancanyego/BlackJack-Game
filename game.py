@@ -244,8 +244,17 @@ while True:
     
     show_some(player_hand, dealer_hand)
     
-    while playing():
-        pass
+    while playing:
+        
+        # Promptplayer to hit stand or hit
+        hit_or_stand(deck, player_hand)
+        
+        # Show Cards
+        show_some(player_hand, dealer_hand)
+        
+        # if players hand exceeds 21, run player burst and exit the loop
+        
+        
     
     
 
