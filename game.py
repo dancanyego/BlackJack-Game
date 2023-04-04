@@ -195,5 +195,23 @@ def show_all(player,dealer):
         
 ##End Of Game scenarios
 
+def player_bursts(player,dealer,chips):
+    print("BUST!! PLAYER !!")
+    chips.lose_bet
+    
+def player_win(player,dealer,chips):
+    print("PLAYER Wins!! DEALER LOST")
+    chips.win_bet
+
+def dealer_burst(player,dealer,chips):
+    print("DEALER BURSTED !! PLAYER WINS!! ")
+    chips.lose_bet
+def dealer_wins(player,dealer,chips):
+    print("PLAYER LOST!! DEALER WINS")
+    chips.win_bet
+
+def push(player,dealer):
+    print("Dealer and Player Tied !! PUSH !")
+    
 
     
