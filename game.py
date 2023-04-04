@@ -106,22 +106,16 @@ class Chips():
 
 def take_bet(chips):
     
-    
     while True:
-        
         try:
-            chips.bet = int(input("How Many chips Would You like to bet"))
-        
-        except:
-            print("Please Provide a valid Interger")
-            
+            chips.bet = int(input('How many chips would you like to bet? '))
+        except ValueError:
+            print('Sorry, a bet must be an integer!')
         else:
-            if chips < chips.total:
-                print("Sorry You have insuficient chips !! You have {}".format(chips.total))
-                
-            else: 
+            if chips.bet > chips.total:
+                print("Sorry, your bet can't exceed",chips.total)
+            else:
                 break
-                
 #function for taking hits
 
 def hit(deck,hand):
@@ -155,35 +149,16 @@ def hit_or_stand(deck,hand):
 # Functions to display Cards
 
 def show_some(player,dealer):
-    #Show only one of the dealers hand
+    print("\nDealer's Hand:")
+    print(" <card hidden>")
+    print('',dealer.cards[1])  
+    print("\nPlayer's Hand:", *player.cards, sep='\n ')
     
-    print("\n Dealers hands::  ")
-    print("First Cards Hidden!!")
-    
-    print(dealer.card[1])
-    
-    
-    #Show all of the Two Players Card
-    
-    print("\n Players Hand ::> ")
-    
-    for card in player.Cards:
-        print(card)
-    
-    
-
 def show_all(player,dealer):
-    
-    # Show All dealers Card
-    
-    print("\n Dealers Hand ::> ")
-    
-    for card in dealer.Cards:
-        print(card)
-    
-    # Calculate and display The Value
-    
-    print(f"Value of Dealers Card is :> {dealer.value}")
+    print("\nDealer's Hand:", *dealer.cards, sep='\n ')
+    print("Dealer's Hand =",dealer.value)
+    print("\nPlayer's Hand:", *player.cards, sep='\n ')
+    print("Player's Hand =",player.value)
     
     # Show The players Cards 
     
