@@ -229,9 +229,32 @@ while True:
         
         # if players hand exceeds 21, run player burst and exit the loop
         
+        if player_hand.value > 21 :
+            player_bursts(player_hand, dealer_hand, player_chips)
         
-    
-    
-
-
-    
+            break
+        
+        # play dealer if players hand has not bursted
+        
+    if player_hand.value <= 21:
+        
+        while dealer_hand.value < 17 :
+            hit(deck, dealer_hand)
+            
+        # Show all cards
+        
+        show_all(player_hand, dealer_hand)
+        
+        # RUn different winning scenarios
+        
+        if dealer_hand.value > 21:
+            dealer_burst(player_hand, dealer_hand, player_chips)
+            
+        elif dealer_hand.value > player_hand.value:
+            dealer_wins(player_hand, dealer_hand, player_chips)
+            
+        elif player_hand.value < dealer_hand.value:
+            player_win(player_hand, dealer_hand, player_chips)
+            
+        else:
+            push(player_hand, dealer_hand)
