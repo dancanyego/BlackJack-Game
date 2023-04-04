@@ -127,23 +127,21 @@ def hit(deck,hand):
 #Prompting players to hit or stand
 
 def hit_or_stand(deck,hand):
-    
-    global playing 
+    global playing  # to control an upcoming while loop
     
     while True:
-        
-        x = input("hit or Stand ??  Enter 'H' or 'S' ")
+        x = input("Would you like to Hit or Stand? Enter 'h' or 's' ")
         
         if x[0].lower() == 'h':
-            hit(deck, hand)
-            
-        elif x[0].lower == 's':
-                print("Player Stands, Dealers Turn")
-                playing = False
-                
+            hit(deck,hand)  # hit() function defined above
+
+        elif x[0].lower() == 's':
+            print("Player stands. Dealer is playing.")
+            playing = False
+
         else:
-            print("I did not understand your prompt, Please Enter H or S only")
-            
+            print("Sorry, please try again.")
+            continue
         break
     
 # Functions to display Cards
@@ -159,14 +157,6 @@ def show_all(player,dealer):
     print("Dealer's Hand =",dealer.value)
     print("\nPlayer's Hand:", *player.cards, sep='\n ')
     print("Player's Hand =",player.value)
-    
-    # Show The players Cards 
-    
-     
-    print("\n Players Hand ::> ")
-    
-    for card in player.Cards:
-        print(card)
         
 ##End Of Game scenarios
 
@@ -263,5 +253,13 @@ while True:
     print('\n players Total chips are at >>  {}'.format(player_chips.total))
     
     # Ask To play again 
+    
+    new_game = input("Would you like to play another hand ? 'Y' or 'N' ")
+    
+    if new_game[0].lower() == 'y':
+        continue
+    else:
+        print("Thegiu for playing ")
+        break
     
     
